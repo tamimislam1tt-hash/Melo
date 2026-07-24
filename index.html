@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List Application</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="todo-wrapper">
+            <!-- Header -->
+            <header class="header">
+                <h1>📝 My Tasks</h1>
+                <p class="subtitle">Stay organized and productive</p>
+            </header>
+
+            <!-- Input Section -->
+            <section class="input-section">
+                <div class="input-group">
+                    <input 
+                        type="text" 
+                        id="taskInput" 
+                        class="task-input" 
+                        placeholder="Add a new task..."
+                        autocomplete="off"
+                    >
+                    <button id="addBtn" class="btn btn-add">Add Task</button>
+                </div>
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="active">Active</button>
+                    <button class="filter-btn" data-filter="completed">Completed</button>
+                </div>
+            </section>
+
+            <!-- Task Counter -->
+            <section class="stats">
+                <span class="stat-item">
+                    <span class="stat-label">Total:</span>
+                    <span id="totalCount" class="stat-value">0</span>
+                </span>
+                <span class="stat-item">
+                    <span class="stat-label">Active:</span>
+                    <span id="activeCount" class="stat-value">0</span>
+                </span>
+                <span class="stat-item">
+                    <span class="stat-label">Completed:</span>
+                    <span id="completedCount" class="stat-value">0</span>
+                </span>
+            </section>
+
+            <!-- Task List -->
+            <section class="task-section">
+                <ul id="taskList" class="task-list"></ul>
+                <div id="emptyState" class="empty-state">
+                    <p>📭 No tasks yet. Add one to get started!</p>
+                </div>
+            </section>
+
+            <!-- Action Buttons -->
+            <section class="action-section">
+                <button id="clearCompleted" class="btn btn-secondary">Clear Completed</button>
+                <button id="clearAll" class="btn btn-danger">Clear All</button>
+            </section>
+        </div>
+    </div>
+
+    <!-- Modal for Editing -->
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Edit Task</h2>
+            <input type="text" id="editInput" class="task-input" placeholder="Edit your task...">
+            <div class="modal-buttons">
+                <button id="saveBtn" class="btn btn-add">Save</button>
+                <button id="cancelBtn" class="btn btn-secondary">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/storage.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
